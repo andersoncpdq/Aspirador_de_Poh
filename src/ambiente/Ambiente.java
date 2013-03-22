@@ -30,6 +30,8 @@ public class Ambiente {
 					ambiente[l][h] = new Sala();
 			}
 		}
+		randomColocarObstaculo(0); //coloquei nenhum obstaculo
+		randomColocarSujeira(2); //coloquei 2 sujeiras
 	}
 	
 	// Retorna verdadeiro caso a posicao seja uma parede (obstaculo).
@@ -65,10 +67,9 @@ public class Ambiente {
 		for (int i = 0; i < k; i++) {
 			int random1=getLargura()*(int)Math.random();
 			int random2=getAltura()*(int)Math.random();
-			//posso melhorar aqui testando se existe obstaculo ou sujeira
-			//antes de colocar
-			//o obstaculo ou se é a posição inicial
-			setSujeira(random1, random2);
+			
+			if(getAmbiente()[random1][random2].equals("limpo")) //esta limpo?
+				setSujeira(random1, random2);
 		}
 	}
 	
@@ -79,7 +80,9 @@ public class Ambiente {
 			//posso melhorar aqui testando se existe obstaculo ou sujeira
 			//antes de colocar
 			//o obstaculo ou se é a posição inicial
-			setObstaculo(random1, random2);
+			if(random1 !=1 && random2 !=1) // é a posicao inicial?
+				if(getAmbiente()[random1][random2].equals("limpo")) //esta limpo?
+					setObstaculo(random1, random2);
 		}
 	}
 
