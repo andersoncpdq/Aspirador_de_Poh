@@ -60,6 +60,28 @@ public class Ambiente {
 		if( posicaoValida(l, h) )
 			this.ambiente[l][h].estado = estadoSala.obstaculo;
 	}
+	// Gera n obstaculos randomicamente
+	private void randomColocarSujeira(int k) {
+		for (int i = 0; i < k; i++) {
+			int random1=getLargura()*(int)Math.random();
+			int random2=getAltura()*(int)Math.random();
+			//posso melhorar aqui testando se existe obstaculo ou sujeira
+			//antes de colocar
+			//o obstaculo ou se é a posição inicial
+			setSujeira(random1, random2);
+		}
+	}
+	
+	private void randomColocarObstaculo(int n) {
+		for (int i = 0; i < n; i++) {
+			int random1=this.largura*(int)Math.random();
+			int random2=this.altura*(int)Math.random();
+			//posso melhorar aqui testando se existe obstaculo ou sujeira
+			//antes de colocar
+			//o obstaculo ou se é a posição inicial
+			setObstaculo(random1, random2);
+		}
+	}
 
 	public int getLargura() {
 		return this.largura;
@@ -72,4 +94,4 @@ public class Ambiente {
 	public Sala[][] getAmbiente() {
 		return this.ambiente;
 	}
-}
+} 
