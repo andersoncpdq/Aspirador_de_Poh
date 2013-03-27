@@ -30,6 +30,8 @@ public abstract class Ambiente {
 					ambiente[l][h] = new Sala();
 			}
 		}
+		//randomColocarObstaculo(0); //coloquei nenhum obstaculo
+		//randomColocarSujeira(2); //coloquei 2 sujeiras
 	}
 	
 	// Retorna verdadeiro caso a posicao seja uma parede (obstaculo).
@@ -64,6 +66,30 @@ public abstract class Ambiente {
 		return flag;
 	}
 	
+	// Gera n obstaculos randomicamente
+	private void randomColocarSujeira(int k) {
+		for (int i = 0; i < k; i++) {
+			int random1=getLargura()*(int)Math.random();
+			int random2=getAltura()*(int)Math.random();
+			
+			if(getAmbiente()[random1][random2].equals("limpo")) //esta limpo?
+				setSujeira(random1, random2);
+		}
+	}
+		
+	private void randomColocarObstaculo(int n) {
+		for (int i = 0; i < n; i++) {
+			int random1=this.largura*(int)Math.random();
+			int random2=this.altura*(int)Math.random();
+			//posso melhorar aqui testando se existe obstaculo ou sujeira
+			//antes de colocar
+			//o obstaculo ou se é a posição inicial
+			if(random1 !=1 && random2 !=1) // é a posicao inicial?
+				if(getAmbiente()[random1][random2].equals("limpo")) //esta limpo?
+					setObstaculo(random1, random2);
+		}
+	}
+	
 	public abstract void executarAspirador();
 	
 	public abstract void exibirInfo();
@@ -85,7 +111,7 @@ public abstract class Ambiente {
 	}
 	
 	/******** GETTERS *********/
-	
+
 	public int getLargura() {
 		return this.largura;
 	}
@@ -97,4 +123,4 @@ public abstract class Ambiente {
 	public Sala[][] getAmbiente() {
 		return this.ambiente;
 	}
-}
+} 
