@@ -18,16 +18,23 @@ public class Sala {
 		this.estado = estado;
 	}
 	
-	public char getDescricaoSala(){
+	public String getDescricaoSala(){
+		String sala = " ";
+		
 		switch(this.estado){
 		case limpo:
-			return '-';
+			sala = "- ";
+			break;
 		case sujo:
-			return '*';
+			sala = "* ";
+			break;
 		case obstaculo:
-			return '#';
+			sala = "# ";
+			break;
 		default:
-			return ' ';
+			break;
 		}
+		
+		return sala;
 	}
 }

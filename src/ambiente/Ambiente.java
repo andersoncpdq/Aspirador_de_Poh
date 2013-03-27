@@ -1,9 +1,9 @@
 package ambiente;
 
-public class Ambiente {
+public abstract class Ambiente {
 
 	/**
-	 * Ambiente onde o Aspirador de Poh ira agir.
+	 * Ambiente padrao.
 	 * Eh constituido por uma matriz quadrada (largura x altura) de salas.
 	 */
 	
@@ -35,6 +35,7 @@ public class Ambiente {
 	// Retorna verdadeiro caso a posicao seja uma parede (obstaculo).
 	public boolean ehParede(int l, int h, int largura, int altura){
 		boolean flag = false;
+		
 		if( l == 0 || h == 0 || l == (largura - 1) || h == (altura - 1) )
 			flag = true;
 		return flag;
@@ -43,11 +44,33 @@ public class Ambiente {
 	// Retorna verdadeiro caso a posicao nao tenha obstaculos.
 	public boolean posicaoValida(int l, int h){
 		boolean flag = false;
+		
 		if( (l > 0 && l < this.largura) && (h > 0 && h < this.largura) 
 			&& (this.ambiente[l][h].estado != estadoSala.obstaculo) )
 			flag = true;
 		return flag;
 	}
+	
+	// Retorna verdadeiro caso ainda exista sujeira no ambiente, ou falso caso contrario.
+	public boolean existeSujeira() {
+		boolean flag = false;
+		
+		for (int x = 0; x < this.largura; x++) {
+			for (int y = 0; y < this.altura; y++) {
+				if(this.ambiente[x][y].estado == estadoSala.sujo)
+					flag = true;
+			}
+		}
+		return flag;
+	}
+	
+	public abstract void executarAspirador();
+	
+	public abstract void exibirInfo();
+	
+	public abstract void exibirAmbiente();
+	
+	/******** SETTERS *********/
 	
 	// Deposita sujeita nas coordenadas passadas por parametro.
 	public void setSujeira(int l, int h){
@@ -60,7 +83,9 @@ public class Ambiente {
 		if( posicaoValida(l, h) )
 			this.ambiente[l][h].estado = estadoSala.obstaculo;
 	}
-
+	
+	/******** GETTERS *********/
+	
 	public int getLargura() {
 		return this.largura;
 	}
