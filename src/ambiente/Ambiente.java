@@ -70,6 +70,8 @@ public class Ambiente {
 			
 			if(getAmbiente()[random1][random2].equals("limpo")) //esta limpo?
 				setSujeira(random1, random2);
+			else
+				i--;
 		}
 	}
 	
@@ -83,6 +85,8 @@ public class Ambiente {
 			if(random1 !=1 && random2 !=1) // é a posicao inicial?
 				if(getAmbiente()[random1][random2].equals("limpo")) //esta limpo?
 					setObstaculo(random1, random2);
+				else
+					i--;
 		}
 	}
 
