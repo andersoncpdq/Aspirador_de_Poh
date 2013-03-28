@@ -49,6 +49,44 @@ public class AmbienteAspiradorReativoSimples extends Ambiente {
 	}
 	
 	@Override
+	public void randomColocarSujeiras(){
+		int k = (int) (Math.random() * (getAltura()));
+		
+		for (int i = 0; i < k; i++) {
+			int random1 = (int) (getLargura() * Math.random());
+			int random2 = (int) (getLargura() * Math.random());
+			if (random1 != 1 && random2 != 1) {// é a posicao inicial?
+				if (getAmbiente()[random1][random2].estado.toString().equals("limpo")) { // esta  limpo?
+					setSujeira(random1, random2);
+				} else {
+					i--;
+				}
+			} else {
+				i--;
+			}
+		}
+	}
+	
+	@Override
+	public void randomColocarObstaculos(){
+		int k = (int) (Math.random() * getAltura());
+		
+		for (int i = 0; i < k; i++) {
+			int random1 = (int) (getLargura() * Math.random());
+			int random2 = (int) (getLargura() * Math.random());
+			if (random1 != 1 && random2 != 1) {// é a posicao inicial?
+				if (getAmbiente()[random1][random2].estado.toString().equals("limpo")) { // esta  limpo?
+					setObstaculo(random1, random2);
+				} else {
+					i--;
+				}
+			} else {
+				i--;
+			}
+		}
+	}
+	
+	@Override
 	public void exibirInfo() {
 		System.out.println("\n Tamanho do Ambiente: (" + (this.altura - 2) + "," + (this.largura - 2) + ")" +
 						   "\n Pontuação Aspirador Reativo Simples: " + this.pontuacaoAspirador +

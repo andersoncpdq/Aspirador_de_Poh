@@ -1,5 +1,6 @@
 package agentes;
 
+import ambiente.AmbienteAspiradorReativoSimples;
 import sensores.SensorObstaculo;
 import sensores.SensorSujeira;
 
@@ -7,8 +8,8 @@ import sensores.SensorSujeira;
  * Agente Aspirador Reativo Simples baseado em regras condicao-acao.
  * Movimenta-se aleatoriamente entre as salas do ambiente. Caso uma sala
  * contenha obstaculo, o aspirador escolhe aleatoriamente outra sala ate
- * encontrar uma desocupada para que possa se movimentar e executar
- * a possivel limpeza.
+ * encontrar uma desocupada para que possa se movimentar e executar a possivel
+ * limpeza.
  */
 
 public class AspiradorReativoSimples extends Aspirador {
@@ -23,11 +24,11 @@ public class AspiradorReativoSimples extends Aspirador {
 		this.sensorSujeira = new SensorSujeira();
 		this.sensorObstaculo = new SensorObstaculo();
 	}
-	
-	public void direcaoAleatoria(){
+
+	public void direcaoAleatoria() {
 		// randomiza numeros de 0 a 3.
-		int nRandom = ( (int)(Math.random() * 10) % 4 );
-		
+		int nRandom = ((int) (Math.random() * 10) % 4);
+
 		// escolhe direcao.
 		switch (nRandom) {
 		case 0:
