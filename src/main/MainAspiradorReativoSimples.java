@@ -10,14 +10,14 @@ public class MainAspiradorReativoSimples {
 		
 		// Adicionando sujeira e obstáculos na mao!
 		// Windsom coloca tua funcao randomica pra funcionar! =P
-		aspiradorNoAmbiente.setSujeira(1, 2);
+		/*aspiradorNoAmbiente.setSujeira(1, 2);
 		aspiradorNoAmbiente.setSujeira(4, 2);
 		aspiradorNoAmbiente.setSujeira(3, 3);
 		aspiradorNoAmbiente.setSujeira(2, 4);
 		
 		aspiradorNoAmbiente.setObstaculo(3, 1);
 		aspiradorNoAmbiente.setObstaculo(2, 3);
-		aspiradorNoAmbiente.setObstaculo(4, 3);
+		aspiradorNoAmbiente.setObstaculo(4, 3);*/
 		
 		System.out.println("- Ambiente antes da limpeza:");
 		aspiradorNoAmbiente.exibirAmbiente();
