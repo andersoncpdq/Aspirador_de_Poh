@@ -69,7 +69,7 @@ public abstract class Ambiente {
 
 	// Gera n obstaculos randomicamente
 	private void randomColocarSujeiras() {
-		int k = (int) Math.random();
+		int k =this.largura* (int) Math.random();
 		for (int i = 0; i < k; i++) {
 			int random1 = getLargura() * (int) Math.random();
 			int random2 = getAltura() * (int) Math.random();
@@ -82,7 +82,7 @@ public abstract class Ambiente {
 	}
 
 	private void randomColocarObstaculos() {
-		int n = (int) Math.random();
+		int n = this.largura * (int) Math.random();
 		for (int i = 0; i < n; i++) {
 			int random1 = this.largura * (int) Math.random();
 			int random2 = this.altura * (int) Math.random();
