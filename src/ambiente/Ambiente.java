@@ -30,8 +30,6 @@ public abstract class Ambiente {
 					ambiente[l][h] = new Sala();
 			}
 		}
-		randomColocarObstaculos(); //coloca obstaculos
-		randomColocarSujeiras(); //coloca sujeiras
 	}
 
 	// Retorna verdadeiro caso a posicao seja uma parede (obstaculo).
@@ -68,31 +66,41 @@ public abstract class Ambiente {
 	}
 
 	// Gera n obstaculos randomicamente
-	private void randomColocarSujeiras() {
-		int k =this.largura* (int) Math.random();
+	public void randomColocarSujeiras() {
+		int k = (int) (Math.random() * (getAltura()));
+		System.out.println("gerara " + k + " sugeiras aleatorias\n");
 		for (int i = 0; i < k; i++) {
-			int random1 = getLargura() * (int) Math.random();
-			int random2 = getAltura() * (int) Math.random();
-
-			if (getAmbiente()[random1][random2].equals("limpo")) // esta limpo?
-				setSujeira(random1, random2);
-			else
+			int random1 = (int) (getLargura() * Math.random());
+			int random2 = (int) (getLargura() * Math.random());
+			if (random1 != 1 && random2 != 1) {// é a posicao inicial?
+				if (getAmbiente()[random1][random2].estado.toString().equals("limpo")) { // esta  limpo?
+					System.out.println(random1 + "," + random2 + "\n");
+					setSujeira(random1, random2);
+				} else {
+					i--;
+				}
+			} else {
 				i--;
+			}
 		}
 	}
 
-	private void randomColocarObstaculos() {
-		int n = this.largura * (int) Math.random();
-		for (int i = 0; i < n; i++) {
-			int random1 = this.largura * (int) Math.random();
-			int random2 = this.altura * (int) Math.random();
-
-			if (random1 != 1 && random2 != 1) // é a posicao inicial?
-				if (getAmbiente()[random1][random2].equals("limpo")) // esta
-																		// limpo?
+	public void randomColocarObstaculos() {
+		int k = (int) (Math.random() * getAltura());
+		System.out.println("gerara " + k + " obstaculos aleatorios\n");
+		for (int i = 0; i < k; i++) {
+			int random1 = (int) (getLargura() * Math.random());
+			int random2 = (int) (getLargura() * Math.random());
+			if (random1 != 1 && random2 != 1) {// é a posicao inicial?
+				if (getAmbiente()[random1][random2].estado.toString().equals("limpo")) { // esta  limpo?
+					System.out.println(random1 + "," + random2 + "\n");
 					setObstaculo(random1, random2);
-				else
+				} else {
 					i--;
+				}
+			} else {
+				i--;
+			}
 		}
 	}
 
