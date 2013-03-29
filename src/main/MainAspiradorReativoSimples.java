@@ -14,11 +14,16 @@ public class MainAspiradorReativoSimples {
 		System.out.println("- Ambiente antes da limpeza:");
 		aspiradorNoAmbiente.exibirAmbiente();
 		
-		while(aspiradorNoAmbiente.existeSujeira())
+		int i=0;
+		while(aspiradorNoAmbiente.existeSujeira()) {
 			aspiradorNoAmbiente.executarAspirador();
+			i++;
+			System.out.println("- Ambiente apos a passo "+i+": ");
+			aspiradorNoAmbiente.exibirAmbiente();
+		}
 		
-		System.out.println("- Ambiente apos a limpeza: ");
-		aspiradorNoAmbiente.exibirAmbiente();
+		//System.out.println("- Ambiente apos a limpeza: ");
+		//aspiradorNoAmbiente.exibirAmbiente();
 		
 		aspiradorNoAmbiente.exibirInfo();
 

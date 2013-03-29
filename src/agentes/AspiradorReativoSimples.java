@@ -33,15 +33,19 @@ public class AspiradorReativoSimples extends Aspirador {
 		switch (nRandom) {
 		case 0:
 			this.setDirecao(DirecaoAspirador.cima);
+			System.out.println("Moveu para cima.\n");
 			break;
 		case 1:
 			this.setDirecao(DirecaoAspirador.baixo);
+			System.out.println("Moveu para baixo.\n");
 			break;
 		case 2:
 			this.setDirecao(DirecaoAspirador.esquerda);
+			System.out.println("Moveu para esquerda.\n");
 			break;
 		case 3:
 			this.setDirecao(DirecaoAspirador.direita);
+			System.out.println("Moveu para direita.\n");
 			break;
 		default:
 			break;
