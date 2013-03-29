@@ -24,8 +24,10 @@ public class AmbienteAspiradorReativoSimples extends Ambiente {
 	@Override
 	public void executarAspirador() {
 		
-		if( aspirador.sensorSujeira.ativarSensor( this.getSala() ) )
+		if( aspirador.sensorSujeira.ativarSensor( this.getSala() ) ) {
 			this.pontuacaoAspirador++;
+			System.out.println("Aspirou\n");
+		}
 		
 		aspirador.direcaoAleatoria();
 		
