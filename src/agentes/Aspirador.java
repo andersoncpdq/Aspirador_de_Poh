@@ -19,11 +19,7 @@ public abstract class Aspirador {
 	// sensores.
 	public Sensor sensorSujeira, sensorObstaculo;
 	
-	// Transforma os deslocamentos em posicoes efetivas (pos + desl).
-	public void efetuarMovimentacao(){
-		this.posX += this.deslX;
-		this.posY += this.deslY;
-	}
+	public abstract void efetuarMovimentacao();
 	
 	/******** SETTERS *********/
 	

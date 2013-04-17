@@ -1,6 +1,5 @@
 package agentes;
 
-import ambiente.AmbienteAspiradorReativoSimples;
 import sensores.SensorObstaculo;
 import sensores.SensorSujeira;
 
@@ -50,5 +49,11 @@ public class AspiradorReativoSimples extends Aspirador {
 		default:
 			break;
 		}
+	}
+	
+	// Transforma os deslocamentos em posicoes efetivas (pos + desl).
+	public void efetuarMovimentacao() {
+		this.posX += this.deslX;
+		this.posY += this.deslY;
 	}
 }

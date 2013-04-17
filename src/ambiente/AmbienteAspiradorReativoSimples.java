@@ -24,7 +24,7 @@ public class AmbienteAspiradorReativoSimples extends Ambiente {
 	@Override
 	public void executarAspirador() {
 		
-		if( aspirador.sensorSujeira.ativarSensor( this.getSala() ) ) {
+		if( aspirador.sensorSujeira.ativarSensor(this.getSala()) ) {
 			this.pontuacaoAspirador++;
 			System.out.println("Aspirou\n");
 		}
@@ -48,44 +48,6 @@ public class AmbienteAspiradorReativoSimples extends Ambiente {
 			System.out.println();
 		}
 		System.out.println();
-	}
-	
-	@Override
-	public void randomColocarSujeiras(){
-		int k = (int) (Math.random() * (getAltura()));
-		
-		for (int i = 0; i < k; i++) {
-			int random1 = (int) (getLargura() * Math.random());
-			int random2 = (int) (getLargura() * Math.random());
-			if (random1 != 1 && random2 != 1) {// é a posicao inicial?
-				if (getAmbiente()[random1][random2].estado.toString().equals("limpo")) { // esta  limpo?
-					setSujeira(random1, random2);
-				} else {
-					i--;
-				}
-			} else {
-				i--;
-			}
-		}
-	}
-	
-	@Override
-	public void randomColocarObstaculos(){
-		int k = (int) (Math.random() * getAltura());
-		
-		for (int i = 0; i < k; i++) {
-			int random1 = (int) (getLargura() * Math.random());
-			int random2 = (int) (getLargura() * Math.random());
-			if (random1 != 1 && random2 != 1) {// é a posicao inicial?
-				if (getAmbiente()[random1][random2].estado.toString().equals("limpo")) { // esta  limpo?
-					setObstaculo(random1, random2);
-				} else {
-					i--;
-				}
-			} else {
-				i--;
-			}
-		}
 	}
 	
 	@Override
